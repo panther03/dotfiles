@@ -1,0 +1,24 @@
+#!/bin/bash
+
+desired_share=$(cat $HOME/.nfs_shares.csv | rofi -dmenu)
+if [ "$desired_share" != "Cancel" ]
+then
+	ip=$(echo $desired_share | cut -d, -f1)
+	host=$(echo $desired_share | cut -d, -f2)
+	share_path=$(echo $desired_share | cut -d, -f3)
+	random_word=$(cat /usr/share/dict/words | grep -E '^[A-Za-z]{4}$' | shuf -n1 -)
+
+	lwsp=$(echo $share_path | awk -F'/' '{print $NF}') # Last Word in Share Path
+
+	if [ -n "$desired_share" ] 
+	then
+			cd /mnt/nfs
+			mkdir -p /mnt/nfs/$host/$lwsp-$random_word		
+			sudo "exportfs $ip:$share_path -o rw, async,no_root_squash,no_subtree_check"
+			mount "$host/$lwsp-$random_word"
+			echo "/mnt/nfs/$host/$lwsp-$random_word" >> /tmp/mountedshares 
+	fi
+fi
+
+# TODO: add a line to keep track of mounted fses
+# add a cancel button?

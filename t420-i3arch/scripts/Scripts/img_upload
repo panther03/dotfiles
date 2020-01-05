@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+shot=/tmp/$(date +%s)
+maim -s -b 1 "$shot.png" || exit
+curl -F"file=@$shot.png" http://0x0.st | sed ':a;N;$!ba;s/\n/ /g' - | $HOME/Scripts/simpleslice | xclip -in -selection clipboard && notify-send "screenshot taken, copied to clipboard" 
