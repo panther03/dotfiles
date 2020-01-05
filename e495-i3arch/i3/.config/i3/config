@@ -221,7 +221,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute
 # bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
 
 exec --no-startup-id compton
-exec --no-startup-id feh     --bg-fill $HOME/Pictures/yosemite-2.jpg
+exec --no-startup-id feh     --bg-fill $HOME/Pictures/wallpaper.png
 exec --no-startup-id ~/Scripts/launch-polybar.sh
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id dunst

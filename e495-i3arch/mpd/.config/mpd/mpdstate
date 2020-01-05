@@ -2,9 +2,8 @@ sw_volume: 32
 audio_device_state:1:My 600lb Life
 audio_device_state:1:24/7 Not Gay Radio
 audio_device_state:1:my_fifo
-state: play
+state: stop
 current: 485
-time: 15.890000
 random: 1
 repeat: 0
 single: 0

@@ -4,7 +4,7 @@
 #sysmodmap=/etc/X11/xinit/.Xmodmap
 
 #  xinput disable 11
-/usr/sbin/anacron -s -t ${HOME}/.anacron/etc/anacrontab -S ${HOME}/.anacron/spool
+#/usr/sbin/anacron -s -t ${HOME}/.anacron/etc/anacrontab -S ${HOME}/.anacron/spool
 xinput --set-prop 12 'libinput Accel Speed' 0
 
 mpd &

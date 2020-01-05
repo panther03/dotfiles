@@ -1,0 +1,18 @@
+Jan 05 16:29 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 16:29 : exception: Failed to decode /share/Music/Radiohead/The Bends/09 - Bullet Proof... I Wish I Was.wav
+Jan 05 16:29 : exception: nested: Failed to open '/share/Music/Radiohead/The Bends/09 - Bullet Proof... I Wish I Was.wav': No such file or directory
+Jan 05 16:29 : player: played "Radiohead/The Bends/09 - Bullet Proof... I Wish I Was.wav"
+Jan 05 16:29 : exception: inotify_add_watch() has failed: No such file or directory
+Jan 05 16:29 : config: option 'auto_resample' on line 44 was not recognized
+Jan 05 16:29 : config: option 'use_mmap' on line 45 was not recognized
+Jan 05 16:29 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 16:29 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 16:29 : exception: bind to '0.0.0.0:8000' failed (continuing anyway, because binding to '[::]:8000' succeeded): Failed to bind socket: Address already in use
+Jan 05 16:29 : exception: Failed to enable output "My 600lb Life" (pulse)
+Jan 05 16:29 : exception: nested: pa_context_connect() has failed: Connection refused
+Jan 05 16:43 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Jan 05 16:43 : exception: inotify_add_watch() has failed: No such file or directory
+Jan 05 16:43 : config: option 'auto_resample' on line 44 was not recognized
+Jan 05 16:43 : config: option 'use_mmap' on line 45 was not recognized
+Jan 05 16:50 : client: [0] opened from 127.0.0.1:59590
+Jan 05 16:50 : client: [0] closed
