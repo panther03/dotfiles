@@ -1,0 +1,215 @@
+[bar/bar]
+bottom = true
+monitor=${env:MONITOR:}
+
+width  = 100%
+height = 30
+
+background = #1a1a1a
+foreground = #ffffff
+
+radius = 0.0
+
+line-size = 2
+
+padding = 0
+
+module-margin = 1
+
+font-0 = IBM Plex Sans:size=9
+font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=9;1"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=9;1"
+font-3 = "Font Awesome 5 Brands:pixelsize=9;1"
+
+modules-left  = i3
+modules-right = filesystem memory cpu pulseaudio battery date
+
+locale = en_US.UTF-8
+
+tray-position    = right
+tray-maxsize     = 16
+tray-transparent = false
+tray-padding     = 1
+
+enable-ipc = true
+
+[settings]
+screenchange-reload = true
+
+[module/i3]
+type = internal/i3
+
+index-sort = false
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll   = false
+wrapping-scroll = false
+reverse-scroll  = false
+
+format = <label-state> <label-mode>
+
+label-mode            = [%mode%]
+label-mode-foreground = #dddddd
+
+label-focused            = %name%
+label-focused-foreground = #ffffff
+label-focused-background = #474747
+label-focused-underline  = #dddddd
+label-focused-padding    = 2
+
+label-unfocused            = %name%
+label-unfocused-foreground = #ffffff
+label-unfocused-padding    = 2
+
+label-visible            = %name%
+label-visible-foreground = #ffffff
+label-visible-padding    = 2
+
+label-urgent            = %name%
+label-urgent-foreground = #ffffff
+label-urgent-background = #473d2a
+label-urgent-underline  = #ffdb9e
+label-urgent-padding    = 2
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+
+interval = 10
+
+label-mounted           = %{F#FF8F95}%mountpoint%%{F-}: %free% free
+label-mounted-underline = #FF8F95
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC 
+
+poll-interval = 5
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = %{F#8595FF}<animation-charging>%{F-}: <label-charging>
+format-charging-underline = #8595FF
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = %{F#8595FF}<ramp-capacity>%{F-}: <label-discharging>
+format-discharging-underline = #8595FF
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%
+;label-charging-underline = #ff8787
+
+; Available tokens:
+;   %percentage% (default)
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+; Available tokens:
+;   %percentage% (default)
+label-full = Fully charged
+label-full-underline = #8595FF
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+[module/memory]
+type = internal/memory
+
+interval = 1
+
+label           = %{F#ffc18f}RAM%{F-}: %gb_free% free
+label-underline = #ffc18f
+
+[module/cpu]
+type = internal/cpu
+
+label           = %{F#95FF8F}CPU%{F-}: %percentage% %
+label-underline = #95FF8F
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+use-ui-max = false
+
+format-volume           = %{F#8fffea}VOL%{F-}: <bar-volume> <label-volume>
+format-volume-underline = #8fffea
+
+label-muted            = [muted]
+label-muted-foreground = #8fffea
+
+label-volume = %percentage%
+
+bar-volume-width = 10
+
+bar-volume-fill            = —
+bar-volume-fill-foreground = #ffffff
+
+bar-volume-indicator            = |
+bar-volume-indicator-foreground = #ffffff
+
+bar-volume-empty            = —
+bar-volume-empty-foreground = #4a4a4a
+
+[module/date]
+type = internal/date
+
+date     = %a %d %b
+date-alt = %A, %d %B %Y
+
+time     = %H:%M
+time-alt = %H:%M:%S
+
+label = %{u#C18FFF +u}%date% %time%%{-u}
