@@ -1,0 +1,1 @@
+../../dotfiles/q302l-i3arch/nvim/nvim/init.vim
