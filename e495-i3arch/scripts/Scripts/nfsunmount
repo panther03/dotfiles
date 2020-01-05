@@ -1,0 +1,5 @@
+#!/bin/bash
+pathtounmount=$(cat /tmp/mountedshares | rofi -dmenu -) 
+gksudo umount "$pathtounmount"
+echo "$pathtounmount"
+sed -i "/$pathtounmount/d" /tmp/mountedshares
