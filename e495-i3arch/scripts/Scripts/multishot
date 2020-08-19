@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+shot=/tmp/$(date +%s)
+WM=$(wmctrl -m | grep "Name:")
+if [ "$WM" == "Name: wlroots wm" ]; then
+	RES=$(slurp)
+	echo $RES | grim -g - $shot.png
+    curl -F"file=@$shot.png" http://0x0.st | sed ':a;N;$!ba;s/\n/ /g' - | $HOME/Scripts/simpleslice | wl-copy -n && notify-send "screenshot taken, copied to clipboard" 
+elif [ "$WM" == "Name: GNOME Shell" ]; then
+	gnome-screenshot -af $shot.png
+	curl -F"file=@$shot.png" http://0x0.st | sed ':a;N;$!ba;s/\n/ /g' - | $HOME/Scripts/simpleslice | wl-copy -n && notify-send "screenshot taken, copied to clipboard" 
+else
+    maim -s -b 1 "$shot.png" || exit
+    curl -F"file=@$shot.png" http://0x0.st | sed ':a;N;$!ba;s/\n/ /g' - | $HOME/Scripts/simpleslice | xclip -in -selection clipboard && notify-send "screenshot taken, copied to clipboard" && notify-send "screenshot taken, copied to clipboard" 
+
+fi

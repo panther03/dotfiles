@@ -1,5 +1,5 @@
 # Files
- mpd_music_dir = "/share/Music"
+ mpd_music_dir = "~/Music"
  lyrics_directory = ~/.ncmpcpp/lyrics
  ncmpcpp_directory = ~/.ncmpcpp
  mpd_host = "localhost"

@@ -7,6 +7,7 @@ promptinit
 prompt agnoster
 alias i3edit="nvim ~/.config/i3/config"
 export PATH="$PATH:/home/panther/go/bin/"
+export GOPATH="$HOME/go"
 export TERMINAL=kitty
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -28,3 +29,4 @@ alias llt='exa -T'
 alias llfu='exa -bghHliS --git'
 
 export GO111MODULE=auto
+# export MOZ_ENABLE_WAYLAND=1

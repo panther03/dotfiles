@@ -6,4 +6,4 @@ hibernate
 lock
 logout" | rofi -dmenu)
 
-$HOME/Scripts/i3exit $choice
+$HOME/Scripts/swayexit $choice

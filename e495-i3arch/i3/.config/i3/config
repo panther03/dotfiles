@@ -96,16 +96,16 @@ set $ws8 "8:"
 set $ws9 "9:VM"
 set $ws0 "10:1"
 #set $ws10 "10:2"
-workspace $ws1 output LVDS1
-workspace $ws2 output LVDS1
-workspace $ws3 output LVDS1
-workspace $ws4 output LVDS1
-workspace $ws5 output LVDS1
-workspace $ws6 output LVDS1
-workspace $ws7 output LVDS1
-workspace $ws8 output LVDS1
-workspace $ws9 output LVDS1
-workspace $ws0 output LVDS1
+workspace $ws1 output eDP
+workspace $ws2 output eDP
+workspace $ws3 output eDP
+workspace $ws4 output eDP
+workspace $ws5 output eDP
+workspace $ws6 output eDP
+workspace $ws7 output eDP
+workspace $ws8 output eDP
+workspace $ws9 output eDP
+workspace $ws0 output eDP
 #
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -226,6 +226,8 @@ exec --no-startup-id ~/Scripts/launch-polybar.sh
 exec --no-startup-id xrdb ~/.Xresources
 exec --no-startup-id dunst
 exec --no-startup-id mpd_discord_richpresence
+exec --no-startup-id mpd
+exec --no-startup-id xinput --set-prop 13 'libinput Accel Speed' 0
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id nm-applet 
 # exec_always --no-startup-id nm-applet
@@ -245,6 +247,7 @@ smart_borders on
 bindsym $mod+d exec --no-startup-id rofi      -show drun
 bindsym $mod+t exec --no-startup-id rofi      -show run
 bindsym $mod+Print exec --no-startup-id ~/Scripts/img_upload
+bindsym $mod+Shift+Print exec --no-startup-id maim ~/Pictures/fuck.png
 bindsym $mod+Shift+F1 exec --no-startup-id ~/Scripts/launch-polybar.sh
 bindsym $mod+Escape exec --no-startup-id ~/Scripts/i3exit suspend 
 bindsym $mod+$alt+Escape exec --no-startup-id ~/Scripts/power_options
